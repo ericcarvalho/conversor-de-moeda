@@ -9,24 +9,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="./scripts.js"></script>
+
     <title>Conversor de Moedas</title>
 </head>
 
 <body>
-    <img src="./assets/logo.gif" alt="logo.gif" />
+    <img class="logo" src="./assets/logo.gif" alt="logo.gif" />
     <main>
         <label>
             converter <b>de</b>
             <select>
-                <options>R$ Real Brasileiro</options>
+                <option>R$ Real Brasileiro</option>
             </select>
         </label>
         
         <label>
             converter <b>para</b>
             <select>
-                <options>€ Euro</options>
-                <options>US$ Dólar Americano</options>
+                <option>US$ Dólar Americano</option>
+                <option>€ Euro</option>
+                
             </select>
         </label>
         
@@ -36,16 +41,18 @@
         <button>Converter</button>
 
         <section>
-            <div>
-                <img src="./assets/bandeiraBrasil.png" alt="logo-moeda-a-conveter" />
-                <p>Real</p>
-                <p>R$ 0,00</p>
+            <div class="currency-box">
+                <img id="brasil-bandeira" src="./assets/bandeiraBrasil.png" alt="logo-moeda-a-conveter" />
+                <p class="currency">Real</p>
+                <p class="currency-value">R$ 0,00</p>
             </div>
-            <img src="./assets/arrow.png" alt="seta" />
-            <div>
+            
+            <img class="arrow" src="./assets/arrow.png" alt="seta" />
+            
+            <div class="currency-box">
                 <img src="./assets/bandeiraUSA.png" alt="logo-moeda-convertida" />
-                <p>Dólar Americano</p>
-                <p>US$ 0,00</p>
+                <p class="currency">Dólar Americano</p>
+                <p class="currency-value">US$ 0.00</p>
             </div>
         </section>
     </main>
