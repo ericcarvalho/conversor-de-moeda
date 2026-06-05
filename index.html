@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="./style.css">
 
-    <script src="./scripts.js"></script>
+    <script src="./scripts.js" defer></script>
 
     <title>Conversor de Moedas</title>
 </head>
@@ -28,30 +28,30 @@
         
         <label>
             converter <b>para</b>
-            <select>
-                <option>US$ Dólar Americano</option>
-                <option>€ Euro</option>
+            <select class="currency-select">
+                <option value="dolar">US$ Dólar Americano</option>
+                <option value="euro">€ Euro</option>
                 
             </select>
         </label>
         
         <label>valor
-            <input placeholder="10.000" />
+            <input class="input-currency" placeholder="10.000" />
         </label>
-        <button>Converter</button>
+        <button class="convert-button">Converter</button>
 
         <section>
             <div class="currency-box">
                 <img id="brasil-bandeira" src="./assets/bandeiraBrasil.png" alt="logo-moeda-a-conveter" />
                 <p class="currency">Real</p>
-                <p class="currency-value">R$ 0,00</p>
+                <p class="currency-value-to-convert">R$ 0,00</p>
             </div>
             
             <img class="arrow" src="./assets/arrow.png" alt="seta" />
             
             <div class="currency-box">
-                <img src="./assets/bandeiraUSA.png" alt="logo-moeda-convertida" />
-                <p class="currency">Dólar Americano</p>
+                <img id="converted-bandeira" class="currency-img"src="./assets/bandeiraUSA.png" alt="logo-moeda-convertida" />
+                <p class="currency" id="currency-name">Dólar Americano</p>
                 <p class="currency-value">US$ 0.00</p>
             </div>
         </section>
