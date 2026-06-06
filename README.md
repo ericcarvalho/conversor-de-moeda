@@ -7,7 +7,7 @@ Um projeto simples e funcional de **conversor de moedas online**, desenvolvido e
 ---
 
 ## 📂 Estrutura de Pastas
-´´´
+```
 conversor-moedas/
 │
 ├── index.html        # Estrutura principal da página
@@ -24,7 +24,7 @@ conversor-moedas/
 ├── australiaLogo.png
 ├── canadaLogo.png
 └── suicaLogo.png
-´´´
+```
 
 ---
 
@@ -92,7 +92,7 @@ ExchangeRate-API
 Este projeto está sob a licença MIT.
 Sinta-se livre para usar, modificar e compartilhar.
 
-
+```
 javascript
 html
 css
@@ -103,3 +103,4 @@ web-app
 finance
 real-time-data
 responsive-design
+```
