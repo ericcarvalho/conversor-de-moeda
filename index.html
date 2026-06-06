@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./style.css">
   <script src="./scripts.js" defer></script>
 </head>
+
 <body>
   <header>
     <img class="logo" src="./assets/logo.gif" alt="Logo Conversor" />
@@ -26,8 +28,13 @@
       <label>
         Converter <b>para</b>
         <select class="currency-select">
-          <option value="dolar">US$ Dólar Americano</option>
-          <option value="euro">€ Euro</option>
+          <option value="USD">Dólar Americano</option>
+          <option value="EUR">Euro</option>
+          <option value="GBP">Libra Esterlina</option>
+          <option value="JPY">Iene Japonês</option>
+          <option value="CAD">Dólar Canadense</option>
+          <option value="AUD">Dólar Australiano</option>
+          <option value="CHF">Franco Suíço</option>
         </select>
       </label>
 
@@ -49,7 +56,8 @@
       <img class="arrow" src="./assets/arrow.png" alt="Seta" />
 
       <div class="currency-box">
-        <img id="converted-bandeira" class="currency-img" src="./assets/bandeiraUSA.png" alt="Bandeira Moeda Convertida" />
+        <img id="converted-bandeira" class="currency-img" src="./assets/bandeiraUSA.png"
+          alt="Bandeira Moeda Convertida" />
         <p class="currency" id="currency-name">Dólar Americano</p>
         <p class="currency-value">US$ 0.00</p>
       </div>
@@ -60,4 +68,5 @@
     <p>© 2026 Conversor de Moedas</p>
   </footer>
 </body>
+
 </html>
