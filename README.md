@@ -77,7 +77,7 @@ Interface simples e responsiva.
 Atualização automática das bandeiras e nomes das moedas.
 
 📸 Demonstração
-[Parece que o resultado não era seguro para exibição. Vamos mudar as coisas e tentar outra opção!]
+![Conversor de Moedas](./assets/print-conversor.png)
 
 🛠️ Tecnologias utilizadas
 HTML5
