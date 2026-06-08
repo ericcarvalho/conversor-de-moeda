@@ -20,21 +20,15 @@
     <form class="converter-form">
       <label>
         Converter <b>de</b>
-        <select disabled>
-          <option>R$ Real Brasileiro</option>
-        </select>
-      </label>
-
-      <label>
-        Converter <b>para</b>
-        <select class="currency-select">
-          <option value="USD">Dólar Americano</option>
-          <option value="EUR">Euro</option>
-          <option value="GBP">Libra Esterlina</option>
-          <option value="JPY">Iene Japonês</option>
-          <option value="CAD">Dólar Canadense</option>
-          <option value="AUD">Dólar Australiano</option>
-          <option value="CHF">Franco Suíço</option>
+        <select class="currency-select-to-convert">
+          <option value="BRL">R$ Real Brasileiro</option>
+          <option value="USD">US$ Dólar Americano</option>
+          <option value="EUR">€ Euro</option>
+          <option value="GBP">£ Libra Esterlina</option>
+          <option value="JPY">¥ Iene Japonês</option>
+          <option value="CAD">C$ Dólar Canadense</option>
+          <option value="AUD">A$ Dólar Australiano</option>
+          <option value="CHF">CHF Franco Suíço</option>
         </select>
       </label>
 
@@ -42,14 +36,29 @@
         Valor
         <input class="input-currency" type="number" placeholder="1000" />
       </label>
+      
+      <label>
+        Converter <b>para</b>
+        <select class="currency-select">
+          <option value="USD">US$ Dólar Americano</option>
+          <option value="EUR">€ Euro</option>
+          <option value="GBP">£ Libra Esterlina</option>
+          <option value="JPY">¥ Iene Japonês</option>
+          <option value="CAD">C$ Dólar Canadense</option>
+          <option value="AUD">A$ Dólar Australiano</option>
+          <option value="CHF">CHF Franco Suíço</option>
+        </select>
+      </label>
+
+
 
       <button type="button" class="convert-button">Converter</button>
     </form>
 
     <section class="result">
       <div class="currency-box">
-        <img id="brasil-bandeira" src="./assets/bandeiraBrasil.png" alt="Bandeira Brasil" />
-        <p class="currency">Real</p>
+        <img id="to-convert-bandeira" class="currency-img-to-convert" src="./assets/bandeiraBrasil.png" alt="Bandeira Brasil" />
+        <p class="currency-name" id="currency-name-to-convert">Real</p>
         <p class="currency-value-to-convert">R$ 0,00</p>
       </div>
 

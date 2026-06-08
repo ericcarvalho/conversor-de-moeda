@@ -30,6 +30,7 @@ function formatCurrency(value, currencyCode, locale = "en-US") {
 // 3. Seu código principal vem depois
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.querySelector(".currency-select");
+const currencySelectToConvert = document.querySelector(".currency-select-to-convert");
 
 // Mapa de locais recomendados por moeda
 const currencyLocales = {
@@ -63,22 +64,32 @@ async function convertValues() {
     const currencyValueConverted = document.querySelector(".currency-value");
 
     try {
-        const moedaDestino = currencySelect.value; // pega o código ISO da moeda
-        const taxaConversao = await getExchangeRate(moedaDestino, "BRL");
+        const moedaOrigem = currencySelectToConvert.value; // moeda do input de cima
+        const moedaDestino = currencySelect.value;         // moeda do input de baixo
 
-        // valor convertido (quanto BRL equivale em moedaDestino)
-        const valorConvertido = inputCurrencyValue / taxaConversao;
+        if (isNaN(inputCurrencyValue) || inputCurrencyValue <= 0) {
+            alert("Por favor, insira um valor numérico positivo.");
+            return;
+        }
 
-        // escolhe locale adequado ou usa en-US como fallback
+        if (moedaDestino === moedaOrigem) {
+            alert("Por favor, selecione moedas diferentes para conversão.");
+            return;
+        }
+
+        // busca taxa de câmbio direta
+        const taxaConversao = await getExchangeRate(moedaOrigem, moedaDestino);
+
+        // calcula valor convertido
+        const valorConvertido = inputCurrencyValue * taxaConversao;
+
+        // escolhe locale adequado
         const locale = currencyLocales[moedaDestino] || "en-US";
 
-        // exibe resultado formatado com símbolos customizados (US$, CA$, AU$ etc.)
+        // exibe resultado formatado
         currencyValueConverted.innerHTML = formatCurrency(valorConvertido, moedaDestino, locale);
 
-        currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        }).format(inputCurrencyValue);
+        currencyValueToConvert.innerHTML = formatCurrency(inputCurrencyValue, moedaOrigem, currencyLocales[moedaOrigem] || "en-US");
 
     } catch (error) {
         console.error(error);
@@ -90,6 +101,8 @@ async function convertValues() {
     function changeCurrency() {
         const currencyName = document.getElementById("currency-name");
         const currenyImage = document.querySelector(".currency-img");
+        const currencyNameToConvert = document.getElementById("currency-name-to-convert");
+        const currenyImageToConvert = document.querySelector(".currency-img-to-convert");
 
         const currencyInfo = {
             USD: { name: "Dólar Americano", img: "./assets/bandeiraUSA.png" },
@@ -99,14 +112,20 @@ async function convertValues() {
             AUD: { name: "Dólar Australiano", img: "./assets/australiaLogo.png" },
             CAD: { name: "Dólar Canadense", img: "./assets/canadaLogo.png" },
             CHF: { name: "Franco Suíço", img: "./assets/suicaLogo.png" },
-            BRL: { name: "Real Brasileiro", img: "./assets/brasilLogo.png" }
+            BRL: { name: "Real Brasileiro", img: "./assets/bandeiraBrasil.png" }
         };
 
         const selected = currencySelect.value;
+        const selectedToConvert = currencySelectToConvert.value;
 
         if (currencyInfo[selected]) {
             currencyName.innerHTML = currencyInfo[selected].name;
             currenyImage.src = currencyInfo[selected].img;
+        }
+
+        if (currencyInfo[selectedToConvert]) {
+            currencyNameToConvert.innerHTML = currencyInfo[selectedToConvert].name;
+            currenyImageToConvert.src = currencyInfo[selectedToConvert].img;
         }
 
         convertValues();
@@ -114,4 +133,6 @@ async function convertValues() {
 
     // Eventos
     currencySelect.addEventListener("change", changeCurrency);
+    currencySelectToConvert.addEventListener("change", changeCurrency);
+
     convertButton.addEventListener("click", convertValues);
